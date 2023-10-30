@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "quatum.limitless_options_forge.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "mixins.limitless_options_forge.refmap.json",
+  "mixins":  [
+    "ChunkMapMixin",
+    "DistanceManagerMinxin"
+  ],
+  "client": [
+    "OptionInstanceMixinAltEnum",
+    "OptionInstanceMixinClampingLazyMaxIntRange",
+    "OptionInstanceMixinEnum",
+    "OptionInstanceMixinIntRange",
+    "OptionInstanceMixinLazyEnum",
+    "OptionInstanceMixinUnitDouble",
+    "IntegratedServermixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
