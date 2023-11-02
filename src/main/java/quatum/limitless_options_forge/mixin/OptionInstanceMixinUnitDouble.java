@@ -21,12 +21,6 @@ import java.util.Optional;
         }
 @Inject(method = "Lnet/minecraft/client/OptionInstance$UnitDouble;codec()Lcom/mojang/serialization/Codec;",at = @At("HEAD"),cancellable = true)
     public void codec(CallbackInfoReturnable<Codec<Double>> cir) {
-        cir.setReturnValue(Codec.either(Codec.doubleRange(Double.MIN_VALUE, Double.MAX_VALUE), Codec.BOOL).xmap((p_231743_) -> {
-            return p_231743_.map((p_231760_) -> {
-                return p_231760_;
-            }, (p_231745_) -> {
-                return p_231745_ ? Double.MAX_VALUE :Double.MIN_VALUE;
-            });
-        }, Either::left));
+        cir.setReturnValue(Codec.DOUBLE.stable());
     }
     }

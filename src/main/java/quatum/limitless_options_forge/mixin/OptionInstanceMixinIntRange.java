@@ -20,7 +20,7 @@ import java.util.Optional;
         }
         @Inject(method = "Lnet/minecraft/client/OptionInstance$IntRange;codec()Lcom/mojang/serialization/Codec;",at = @At("HEAD"),cancellable = true)
         public void codec(CallbackInfoReturnable<Codec<Integer>> cir) {
-            cir.setReturnValue(Codec.intRange(Integer.MIN_VALUE, Integer.MAX_VALUE));
+            cir.setReturnValue(Codec.INT.stable());
             cir.cancel();
         }
     }

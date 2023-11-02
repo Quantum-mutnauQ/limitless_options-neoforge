@@ -12,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
+import java.util.function.Function;
+
 @OnlyIn(Dist.CLIENT)
 @Mixin(OptionInstance.ClampingLazyMaxIntRange.class)
 public class OptionInstanceMixinClampingLazyMaxIntRange {
@@ -22,11 +24,7 @@ public class OptionInstanceMixinClampingLazyMaxIntRange {
         }
         @Inject(method = "Lnet/minecraft/client/OptionInstance$ClampingLazyMaxIntRange;codec()Lcom/mojang/serialization/Codec;",at = @At("HEAD"),cancellable = true)
     public void codec(CallbackInfoReturnable<Codec<Integer>> cir) {
-            cir.setReturnValue( ExtraCodecs.validate(Codec.INT, (p_276098_) -> {
-            int i = Integer.MAX_VALUE;
-            return p_276098_.compareTo(Integer.MIN_VALUE) >= 0 && p_276098_.compareTo(i) <= 0 ? DataResult.success(p_276098_) : DataResult.error(() -> {
-                return "Value " + p_276098_ + " outside of range [" + Integer.MIN_VALUE + ":" + i + "]";
-            }, p_276098_);
-        }));
+            cir.setReturnValue(Codec.INT.stable());
+
     }
     }

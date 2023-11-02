@@ -13,7 +13,6 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -85,7 +84,7 @@ minecraft {
             // Recommended logging level for the console
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            //property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.console.level', 'debug'
 
             mods {
                 "${mod_id}" {
@@ -101,7 +100,7 @@ minecraft {
 
         server {
             property 'forge.enabledGameTestNamespaces', mod_id
-            //args '--nogui'
+            args '--nogui'
         }
 
         // This run config launches GameTestServer and runs all registered gametests, then exits.
@@ -148,6 +147,7 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
@@ -165,11 +165,7 @@ dependencies {
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
-mixin {
-    // MixinGradle Settings
-    add sourceSets.main, 'mixins.limitless_options_forge.refmap.json'
-    config 'limitless_options_forge.mixins.json'
-}
+
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 // When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.

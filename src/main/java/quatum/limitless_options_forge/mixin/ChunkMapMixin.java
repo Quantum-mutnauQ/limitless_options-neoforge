@@ -22,7 +22,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @Mixin(ChunkMap.class)
-public class ChunkMapMixin{/*
+public class ChunkMapMixin{
+
     @Shadow
     int viewDistance;
     int anInt = 0;
@@ -31,12 +32,12 @@ public class ChunkMapMixin{/*
     @Redirect(method = "setViewDistance", at = @At(value = "INVOKE", target = "net/minecraft/util/Mth.clamp(III)I"))
     private int redirectClamp(int p_140168_, int min, int max) {
         // Hier leitest du den Aufruf von Mth.clamp um und gibst einfach 'value' zurück
-        return Mth.clamp(p_140168_, 1, Integer.MAX_VALUE);
+        return Mth.clamp(p_140168_, 1, Byte.MAX_VALUE -2);
     }
     @ModifyArg(method = "setViewDistance",at = @At(value = "INVOKE",target = "Lnet/minecraft/server/level/ChunkMap$DistanceManager;updatePlayerTickets(I)V"),index = 0)
     private int redirectdistanceManager(int par1) {
         // Hier leitest du den Aufruf von Mth.clamp um und gibst einfach 'value' zurück
 
-        return Mth.clamp(par1, 1, 33);
-    }*/
+        return Mth.clamp(par1, 1, Byte.MAX_VALUE -2);
+    }
 }
