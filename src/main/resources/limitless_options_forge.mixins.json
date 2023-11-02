@@ -5,7 +5,8 @@
   "refmap": "limitless_options_forge.refmap.json",
   "mixins":  [
     "ChunkMapMixin",
-    "DistanceManagerMinxin"
+    "DistanceManagerMinxin",
+    "ChunkLevelMixin"
   ],
   "client": [
     "OptionInstanceMixinAltEnum",

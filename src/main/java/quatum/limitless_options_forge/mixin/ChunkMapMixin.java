@@ -34,10 +34,4 @@ public class ChunkMapMixin{
         // Hier leitest du den Aufruf von Mth.clamp um und gibst einfach 'value' zurück
         return Mth.clamp(p_140168_, 1, Byte.MAX_VALUE -2);
     }
-    @ModifyArg(method = "setViewDistance",at = @At(value = "INVOKE",target = "Lnet/minecraft/server/level/ChunkMap$DistanceManager;updatePlayerTickets(I)V"),index = 0)
-    private int redirectdistanceManager(int par1) {
-        // Hier leitest du den Aufruf von Mth.clamp um und gibst einfach 'value' zurück
-
-        return Mth.clamp(par1, 1, Byte.MAX_VALUE -2);
-    }
 }
