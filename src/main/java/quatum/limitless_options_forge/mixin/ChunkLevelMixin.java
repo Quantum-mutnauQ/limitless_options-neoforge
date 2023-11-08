@@ -1,6 +1,5 @@
 package quatum.limitless_options_forge.mixin;
 
-import net.minecraft.server.level.FullChunkStatus;
 import net.minecraft.world.level.chunk.ChunkStatus;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -8,15 +7,14 @@ import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(net.minecraft.server.level.ChunkLevel.class)
 public class ChunkLevelMixin {
     @Mutable
     @Shadow() @Final
     private static int MAX_LEVEL;
+    /*
 
     @Inject(method = "generationStatus", at = @At("HEAD"),cancellable = true)
     private static void generationStatus(int p_287738_, CallbackInfoReturnable<ChunkStatus> cir){
@@ -66,7 +64,7 @@ public class ChunkLevelMixin {
     @Inject(method = "isBlockTicking", at = @At("HEAD"),cancellable = true)
     private static void isBlockTicking(int p_287696_, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(p_287696_ <= Byte.MAX_VALUE - 2);
-    }
+    }*/
     @Inject(method = "<clinit>",at = @At(value = "TAIL"))
     private static void fix(CallbackInfo ci){
         MAX_LEVEL = Byte.MAX_VALUE - 1 + ChunkStatus.maxDistance();
