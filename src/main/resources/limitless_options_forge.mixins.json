@@ -6,7 +6,7 @@
   "mixins":  [
     "ChunkMapMixin",
     "DistanceManagerMinxin",
-    "ChunkLevelMixin"
+    "ChunkTaskPriorityQueueMixin"
   ],
   "client": [
     "OptionInstanceMixinAltEnum",
