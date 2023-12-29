@@ -11,7 +11,7 @@ Known issues:
 
 Notice:
 
-    Cunks over 35 will not update for performance improvement(+~120 fps, - 40 mspt). Only for versions higher than version 4 inclusive.
+    Cunks over 35 will not update for performance improvement(+~120 fps, - 40 mspt).
     Add optional slider out of range fix. Can enable and disable in the config fie
     Add render distance fix (pre pre pre alpha and may can break the chunk loaden). Can enable and disable in the config fie
 
