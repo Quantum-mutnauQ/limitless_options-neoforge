@@ -1,15 +1,15 @@
 {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/limitless-options-forge",
     "promos": {
-        "1.20-latest": "9",
-        "1.20-recommended": "9",
-        "1.20.1-latest": "9",
-        "1.20.1-recommended": "9",
-        "1.20.2-latest": "9",
-        "1.20.2-recommended": "9",
-        "1.20.3-latest": "9",
-        "1.20.3-recommended": "9",
-        "1.20.4-latest": "9",
-        "1.20.4-recommended": "9"
+        "1.20-latest": "10",
+        "1.20-recommended": "10",
+        "1.20.1-latest": "10",
+        "1.20.1-recommended": "10",
+        "1.20.2-latest": "10",
+        "1.20.2-recommended": "10",
+        "1.20.3-latest": "10",
+        "1.20.3-recommended": "10",
+        "1.20.4-latest": "10",
+        "1.20.4-recommended": "10"
     }
 }
