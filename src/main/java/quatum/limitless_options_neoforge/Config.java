@@ -19,9 +19,9 @@ public class Config
      private static final ModConfigSpec.BooleanValue Troll = BUILDER
             .comment("Enable oanly linux version")
             .define("onalyLinux",false);
-    private static final ModConfigSpec.BooleanValue SliderFix = BUILDER
+    private static final ModConfigSpec.EnumValue<SlyderFixType> SliderFix = BUILDER
             .comment("Fix that the slider status go over the maximum")
-            .define("SliderFix",true);
+            .defineEnum("SliderFix",SlyderFixType.FIX_CLAMP_SLIDER);
     private static final ModConfigSpec.BooleanValue RenderDistanzFix = BUILDER
             .comment("Allow render chunks over the 32 renderdistanz limit(this is a pre pre pre alpha and may brake the chunk loading)")
             .define("RenderDistanzFix",false);
@@ -31,7 +31,7 @@ public class Config
     static final ModConfigSpec SPEC = BUILDER.build();
 
     public static boolean troll = false;
-    public static boolean SliderFixValue = true;
+    public static SlyderFixType SliderFixValue =SlyderFixType.FIX_CLAMP_SLIDER;
     public static boolean RenderDistanzFixValue = false;
     public static boolean SetOptionsButtonValue = true;
 

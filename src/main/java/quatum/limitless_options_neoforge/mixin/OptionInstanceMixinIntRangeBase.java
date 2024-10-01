@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import quatum.limitless_options_neoforge.Config;
+import quatum.limitless_options_neoforge.SlyderFixType;
 
 //@Interface(iface = "net.minecraft.client.OptionInstance$IntRangeBase")
 @Mixin(targets = "net.minecraft.client.OptionInstance$IntRangeBase")
@@ -19,7 +20,7 @@ public interface OptionInstanceMixinIntRangeBase {
     int maxInclusive();
     @Inject(method = "fromSliderValue(D)Ljava/lang/Integer;",at = @At("HEAD"),cancellable = true)
     default void fromSliderValue(double p_231656_, CallbackInfoReturnable<Integer> cir) {
-        if (Config.SliderFixValue == false)
+        if (Config.SliderFixValue == SlyderFixType.FALSE)
             return;
 
         if (p_231656_ == 1.0) {
