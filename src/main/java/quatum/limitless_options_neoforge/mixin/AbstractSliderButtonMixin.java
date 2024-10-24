@@ -35,7 +35,7 @@ public abstract class AbstractSliderButtonMixin{
     @ModifyArg(method = "renderWidget",at = @At(value = "INVOKE",target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIII)V",ordinal = 1),index = 2)
     public int fixOutOfRange(int p_281513_){
         if (Config.SliderFixValue == SlyderFixType.FIX_CLAMP_SLIDER|| Config.SliderFixValue == SlyderFixType.FIX_CLAMP_AND_OVERSHOOT_SLIDER)
-            return Mth.clamp(p_281513_,x, x+width);
+            return Mth.clamp(p_281513_,x, x+width-8);
         else
             return p_281513_;
     }
