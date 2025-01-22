@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "quatum.limitless_options_forge.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "limitless_options_forge.refmap.json",
+  "mixins":  [
+    "ChunkMapMixin",
+    "DistanceManagerMinxin",
+    "ChunkTaskPriorityQueueMixin",
+    "ChunkLevelMixin"
+  ],
+  "client": [
+    "OptionInstanceMixinAltEnum",
+    "OptionInstanceMixinClampingLazyMaxIntRange",
+    "OptionInstanceMixinEnum",
+    "OptionInstanceMixinIntRange",
+    "OptionInstanceMixinLazyEnum",
+    "OptionInstanceMixinUnitDouble",
+    "IntegratedServermixin",
+    "AbstractSliderButtonMixin",
+    "OptionsScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
