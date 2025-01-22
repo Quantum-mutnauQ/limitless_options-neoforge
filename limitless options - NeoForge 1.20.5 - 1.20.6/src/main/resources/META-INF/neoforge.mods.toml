@@ -68,7 +68,7 @@ side="BOTH"
 modId="minecraft"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
 versionRange="${minecraft_version_range}"
-#mandatory=true
+mandatory=true
 ordering="NONE"
 side="BOTH"
 
