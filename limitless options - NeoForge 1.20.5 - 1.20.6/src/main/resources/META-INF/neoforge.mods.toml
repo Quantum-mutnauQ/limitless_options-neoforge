@@ -42,7 +42,7 @@ authors="${mod_authors}" #optional
 description='''${mod_description}'''
 
 logoFile="logo.png"
-updateJSONURL="https://raw.githubusercontent.com/Quantum-mutnauQ/limitless_options-neoforge/Assets/updateJSON.json"
+updateJSONURL="https://raw.githubusercontent.com/Quantum-mutnauQ/limitless_options-neoforge/refs/heads/main/assets/updateJSON.json"
 displayTest="MATCH_VERSION"
 
 [[mixins]]
@@ -68,7 +68,7 @@ side="BOTH"
 modId="minecraft"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
 versionRange="${minecraft_version_range}"
-mandatory=true
+#mandatory=true
 ordering="NONE"
 side="BOTH"
 

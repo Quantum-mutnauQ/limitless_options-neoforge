@@ -42,7 +42,7 @@ authors="${mod_authors}" #optional
 description='''${mod_description}'''
 
 logoFile="logo.png"
-updateJSONURL="https://raw.githubusercontent.com/Quantum-mutnauQ/limitless_options-neoforge/Assets/updateJSON.json"
+updateJSONURL="https://raw.githubusercontent.com/Quantum-mutnauQ/limitless_options-neoforge/refs/heads/main/assets/updateJSON.json"
 displayTest="MATCH_VERSION"
 
 [[mixins]]
