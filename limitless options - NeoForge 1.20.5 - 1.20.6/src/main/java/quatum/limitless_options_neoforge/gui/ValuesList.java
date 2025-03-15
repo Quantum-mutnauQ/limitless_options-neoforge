@@ -18,21 +18,21 @@ import net.neoforged.api.distmarker.OnlyIn;
 
 
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
 
 @OnlyIn(Dist.CLIENT)
 public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
+    String filter;
+    private final ArrayList<Entry> internalChildren = new ArrayList<Entry>();
     public ValuesList(Minecraft p_94465_, int p_94466_, int p_94467_, int p_94468_, int p_94469_) {
         super(p_94465_, p_94466_, p_94467_, p_94468_, p_94469_);
         this.centerListVertically = false;
     }
 
     public void add(OptionInstance<?> p_232531_, Font font) {
-        this.addEntry(ValuesList.Entry.normal(this.minecraft.options, this.width, p_232531_, font));
+        internalChildren.add(ValuesList.Entry.normal(this.minecraft.options, this.width, p_232531_, font));
+        fillValues();
     }
 
     public void add(List<OptionInstance<?>> p_232534_, Font font) {
@@ -57,14 +57,31 @@ public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
         return Optional.empty();
     }
 
+
+
+    public void updateFilter(String p_239901_) {
+        this.filter = p_239901_;
+        fillValues();
+    }
+
+    public void fillValues(){
+        this.clearEntries();
+        internalChildren.forEach(entry -> {
+            if( filter == null||entry.name.toLowerCase().contains(this.filter.toLowerCase()))
+                this.addEntry(entry);
+        });
+    }
+
     @OnlyIn(Dist.CLIENT)
     protected static class Entry extends ContainerObjectSelectionList.Entry<ValuesList.Entry> {
         final Map<OptionInstance<?>, List<AbstractWidget>> options;
         final List<AbstractWidget> children;
+        final String name;
 
-        private Entry(Map<OptionInstance<?>, List<AbstractWidget>> p_169047_) {
+        private Entry(Map<OptionInstance<?>, List<AbstractWidget>> p_169047_,String name) {
             this.options = p_169047_;
             this.children = p_169047_.values().stream().toList().get(0);
+            this.name = name;
         }
 
         public static ValuesList.Entry normal(Options p_232538_, int p_232539_, OptionInstance<?> p_232540_, Font font) {
@@ -98,7 +115,7 @@ public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
             StringWidget stringWidget = new StringWidget(p_232539_ / 2,20, Component.literal(p_232540_.toString()),font);
             List<AbstractWidget> abstractWidgets= List.of(stringWidget,editBox);
 
-            return new ValuesList.Entry(ImmutableMap.of(p_232540_,abstractWidgets));
+            return new ValuesList.Entry(ImmutableMap.of(p_232540_,abstractWidgets),p_232540_.toString());
         }
 
         public static void onChange(OptionInstance<?> p_232540_,byte type, EditBox editBox,Options options){
