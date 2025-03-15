@@ -9,6 +9,7 @@ import net.minecraft.client.OptionInstance;
 import net.minecraft.client.Options;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GpuWarnlistManager;
 import net.minecraft.network.chat.CommonComponents;
@@ -26,6 +27,7 @@ public class OpionssetterScreen extends Screen {
     private ValuesList list;
     private final GpuWarnlistManager gpuWarnlistManager;
     private final int oldMipmaps;
+    protected EditBox searchBox;
 
 
     public OpionssetterScreen(Screen p_96806_) {
@@ -41,17 +43,11 @@ public class OpionssetterScreen extends Screen {
     }
 
     protected void init() {
-        this.list = new ValuesList(this.minecraft, this.width, this.height - 64, 32, 25);
-        int i = -1;
+        this.searchBox = new EditBox(this.font, this.width / 2 - 100, 22, 200, 20, this.searchBox, Component.nullToEmpty(""));
+        this.searchBox.setResponder(p_232980_ -> this.list.updateFilter(p_232980_));
+        this.addWidget(this.searchBox);
+        this.list = new ValuesList(this.minecraft, this.width, this.height - 80,  48, 25);
         Window window = this.minecraft.getWindow();
-        Monitor monitor = window.findBestMonitor();
-        int j;
-        if (monitor == null) {
-            j = -1;
-        } else {
-            Optional<VideoMode> optional = window.getPreferredFullscreenVideoMode();
-            j = optional.map(monitor::getVideoModeIndex).orElse(-1);
-        }
         this.list.add(DefaultsOptionesList.OnScreenOptions,font);
 
         this.addWidget(this.list);
@@ -103,10 +99,11 @@ public class OpionssetterScreen extends Screen {
 
     public void render(GuiGraphics p_282311_, int p_283219_, int p_282352_, float p_283266_) {
         this.basicListRender(p_282311_, this.list, p_283219_, p_282352_, p_283266_);
+        this.searchBox.render(p_282311_,  p_283219_,  p_282352_,  p_283266_);
     }
     protected void basicListRender(GuiGraphics p_282011_, ValuesList p_281793_, int p_281640_, int p_281598_, float p_281558_) {
         super.render(p_282011_, p_281640_, p_281598_, p_281558_);
         p_281793_.render(p_282011_, p_281640_, p_281598_, p_281558_);
-        p_282011_.drawCenteredString(this.font, this.title, this.width / 2, 20, 16777215);
+        p_282011_.drawCenteredString(this.font, this.title, this.width / 2, 8, 16777215);
     }
 }
