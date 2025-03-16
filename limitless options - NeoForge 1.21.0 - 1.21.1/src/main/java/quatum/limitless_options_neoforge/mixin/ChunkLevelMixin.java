@@ -1,7 +1,6 @@
 package quatum.limitless_options_neoforge.mixin;
 
 import net.minecraft.server.level.ChunkLevel;
-import net.minecraft.world.level.chunk.status.ChunkStatus;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;

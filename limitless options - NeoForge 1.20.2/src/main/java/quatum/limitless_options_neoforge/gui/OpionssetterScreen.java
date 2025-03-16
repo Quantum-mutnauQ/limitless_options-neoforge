@@ -1,7 +1,5 @@
 package quatum.limitless_options_neoforge.gui;
 
-import com.mojang.blaze3d.platform.Monitor;
-import com.mojang.blaze3d.platform.VideoMode;
 import com.mojang.blaze3d.platform.Window;
 import net.minecraft.client.GraphicsStatus;
 import net.minecraft.client.Minecraft;
@@ -16,9 +14,6 @@ import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-
-
-import java.util.Optional;
 
 @OnlyIn(Dist.CLIENT)
 public class OpionssetterScreen extends Screen {

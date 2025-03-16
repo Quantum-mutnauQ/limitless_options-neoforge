@@ -2,9 +2,6 @@ package quatum.limitless_options_neoforge.mixin;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.client.OptionInstance;
-
-import net.minecraft.client.Options;
-import net.minecraft.client.gui.components.OptionsList;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;

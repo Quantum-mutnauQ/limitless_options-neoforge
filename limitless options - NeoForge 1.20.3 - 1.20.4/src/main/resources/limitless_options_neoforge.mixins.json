@@ -4,21 +4,21 @@
   "package": "quatum.limitless_options_neoforge.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "limitless_options_neoforge.refmap.json",
-  "mixins":  [
+  "mixins": [
+    "ChunkLevelMixin",
     "ChunkMapMixin",
-    "DistanceManagerMinxin",
     "ChunkTaskPriorityQueueMixin",
-    "ChunkLevelMixin"
+    "DistanceManagerMinxin"
   ],
   "client": [
+    "AbstractSliderButtonMixin",
+    "IntegratedServermixin",
     "OptionInstanceMixinAltEnum",
     "OptionInstanceMixinClampingLazyMaxIntRange",
     "OptionInstanceMixinEnum",
     "OptionInstanceMixinIntRange",
     "OptionInstanceMixinLazyEnum",
     "OptionInstanceMixinUnitDouble",
-    "IntegratedServermixin",
-    "AbstractSliderButtonMixin",
     "OptionsScreenMixin"
   ],
   "injectors": {

@@ -16,7 +16,6 @@ import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
-
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Predicate;

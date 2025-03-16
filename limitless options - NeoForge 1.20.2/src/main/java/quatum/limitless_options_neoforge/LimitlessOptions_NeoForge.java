@@ -12,7 +12,6 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.neoforged.neoforge.client.ConfigScreenHandler;
-import net.neoforged.neoforge.common.NeoForge;
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 import org.slf4j.Logger;
 import quatum.limitless_options_neoforge.gui.OpionssetterScreen;

@@ -1,6 +1,5 @@
 package quatum.limitless_options_neoforge.mixin;
 
-import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap;
 import net.minecraft.server.level.ChunkTaskPriorityQueue;
 import net.minecraft.world.level.ChunkPos;
@@ -14,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import quatum.limitless_options_neoforge.Config;
 
 import java.util.List;
-import java.util.Optional;
 
 @Mixin(ChunkTaskPriorityQueue.class)
 public class ChunkTaskPriorityQueueMixin<T> {

@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundSource;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
