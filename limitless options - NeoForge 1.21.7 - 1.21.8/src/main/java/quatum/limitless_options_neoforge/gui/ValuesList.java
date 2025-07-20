@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Predicate;
 
-@OnlyIn(Dist.CLIENT)
+
 public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
     String filter;
     private final ArrayList<Entry> internalChildren = new ArrayList<Entry>();
@@ -71,8 +71,6 @@ public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
 
     }
 
-
-        @OnlyIn(Dist.CLIENT)
     protected static class Entry extends ContainerObjectSelectionList.Entry<ValuesList.Entry> {
         final Map<OptionInstance<?>, List<AbstractWidget>> options;
         final List<AbstractWidget> children;

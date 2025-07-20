@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
-@OnlyIn(Dist.CLIENT)
+
 @Mixin(OptionInstance.LazyEnum.class)
     public  class OptionInstanceMixinLazyEnum<T>{
      @Inject(method = "Lnet/minecraft/client/OptionInstance$LazyEnum;validateValue(Ljava/lang/Object;)Ljava/util/Optional;", at = @At("HEAD"),cancellable = true)

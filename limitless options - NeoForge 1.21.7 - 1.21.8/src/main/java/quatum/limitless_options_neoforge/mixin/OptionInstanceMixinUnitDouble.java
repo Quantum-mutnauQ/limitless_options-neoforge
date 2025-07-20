@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
-@OnlyIn(Dist.CLIENT)
+
 @Mixin(OptionInstance.UnitDouble.class)
     public  class OptionInstanceMixinUnitDouble {
         @Inject(method = "Lnet/minecraft/client/OptionInstance$UnitDouble;validateValue(Ljava/lang/Double;)Ljava/util/Optional;", at = @At("HEAD"), cancellable = true)

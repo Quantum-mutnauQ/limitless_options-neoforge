@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
-@OnlyIn(Dist.CLIENT)
+
 @Mixin(OptionInstance.AltEnum.class)
     public class OptionInstanceMixinAltEnum<T> {
         @Inject(method = "Lnet/minecraft/client/OptionInstance$AltEnum;validateValue(Ljava/lang/Object;)Ljava/util/Optional;", at = @At("HEAD"), cancellable = true)

@@ -9,7 +9,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 import java.util.ArrayList;
 import java.util.List;
 
-@OnlyIn(Dist.CLIENT)
+
 public class DefaultsOptionesList {
 
     public static List<OptionInstance<?>> OnScreenOptions = addDefaults();

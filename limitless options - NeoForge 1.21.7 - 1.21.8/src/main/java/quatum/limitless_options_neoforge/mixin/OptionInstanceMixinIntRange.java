@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
-@OnlyIn(Dist.CLIENT)
+
 @Mixin(OptionInstance.IntRange.class)
 public abstract class OptionInstanceMixinIntRange {
     @Shadow public abstract Optional<Integer> validateValue(Integer p_231645_);

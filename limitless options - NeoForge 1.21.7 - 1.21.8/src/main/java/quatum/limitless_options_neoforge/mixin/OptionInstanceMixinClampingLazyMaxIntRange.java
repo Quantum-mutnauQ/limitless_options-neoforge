@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
-@OnlyIn(Dist.CLIENT)
+
 @Mixin(OptionInstance.ClampingLazyMaxIntRange.class)
 public class OptionInstanceMixinClampingLazyMaxIntRange {
         @Inject(method = "Lnet/minecraft/client/OptionInstance$ClampingLazyMaxIntRange;validateValue(Ljava/lang/Integer;)Ljava/util/Optional;",at = @At("HEAD"), cancellable = true)

@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import quatum.limitless_options_neoforge.Config;
 import quatum.limitless_options_neoforge.gui.MinecraftOptionenButtons;
 
-@OnlyIn(Dist.CLIENT)
+
 @Mixin(OptionsScreen.class)
 public class OptionsScreenMixin extends Screen {
     protected OptionsScreenMixin(Component p_96550_) {
