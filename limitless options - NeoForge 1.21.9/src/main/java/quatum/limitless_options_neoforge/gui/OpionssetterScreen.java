@@ -9,6 +9,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.GpuWarnlistManager;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
@@ -42,7 +43,7 @@ public class OpionssetterScreen extends Screen {
         this.searchBox.setResponder(p_232980_ -> this.list.updateFilter(p_232980_));
         this.addWidget(this.searchBox);
 
-        this.list = new ValuesList(this.minecraft, this.width, this.height - 80,  48, 25);
+        this.list = new ValuesList(this.minecraft, this.width, this.height - 80,  48, 25,this);
         Window window = this.minecraft.getWindow();
         this.list.add(DefaultsOptionesList.OnScreenOptions,font);
 
@@ -63,9 +64,9 @@ public class OpionssetterScreen extends Screen {
         super.removed();
     }
 
-    public boolean mouseClicked(double p_96809_, double p_96810_, int p_96811_) {
+    public boolean mouseClicked(MouseButtonEvent p_446300_, boolean p_434065_) {
         int i = this.options.guiScale().get();
-        if (super.mouseClicked(p_96809_, p_96810_, p_96811_)) {
+        if (super.mouseClicked(p_446300_,p_434065_)) {
             if (this.options.guiScale().get() != i) {
                 this.minecraft.resizeDisplay();
             }
@@ -75,10 +76,10 @@ public class OpionssetterScreen extends Screen {
         }
     }
 
-    public boolean mouseScrolled(double p_278332_, double p_278334_, double p_278285_, double p_300252_) {
-        if (Screen.hasControlDown()) {
+    public boolean mouseScrolled(double p_344913_, double p_346159_, double p_345166_, double p_345130_) {
+        if (this.minecraft.hasControlDown()) {
             OptionInstance<Integer> $$4 = this.options.guiScale();
-            int $$5 = (Integer)$$4.get() + (int)Math.signum(p_300252_);
+            int $$5 = (Integer)$$4.get() + (int)Math.signum(p_344913_);
             if ($$5 != 0) {
                 $$4.set($$5);
                 if ((Integer)$$4.get() == $$5) {
@@ -89,7 +90,7 @@ public class OpionssetterScreen extends Screen {
 
             return false;
         } else {
-            return super.mouseScrolled(p_278332_, p_278334_, p_278285_, p_300252_);
+            return super.mouseScrolled(p_344913_, p_346159_, p_345166_, p_345130_);
         }
     }
 

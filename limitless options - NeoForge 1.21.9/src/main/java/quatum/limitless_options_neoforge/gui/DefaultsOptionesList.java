@@ -32,7 +32,8 @@ public class DefaultsOptionesList {
         list.add(options.entityShadows());
         list.add(options.forceUnicodeFont());
         list.add(options.discreteMouseScroll());
-        list.add(options.invertYMouse());
+        list.add(options.invertMouseX());
+        list.add(options.invertMouseY());
         list.add(options.realmsNotifications());
         list.add(options.reducedDebugInfo());
         list.add(options.showSubtitles());

@@ -6,12 +6,11 @@ import net.minecraft.client.OptionInstance;
 import net.minecraft.client.Options;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.ContainerObjectSelectionList;
-import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.gui.components.StringWidget;
+import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.options.OptionsSubScreen;
 import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -24,14 +23,16 @@ import java.util.function.Predicate;
 public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
     String filter;
     private final ArrayList<Entry> internalChildren = new ArrayList<Entry>();
+    private final Screen screen;
 
-    public ValuesList(Minecraft p_94465_, int p_94466_, int p_94467_, int p_94468_, int p_94469_) {
+    public ValuesList(Minecraft p_94465_, int p_94466_, int p_94467_, int p_94468_, int p_94469_, Screen screen) {
         super(p_94465_, p_94466_, p_94467_, p_94468_, p_94469_);
+        this.screen = screen;
         this.centerListVertically = false;
     }
 
     public void add(OptionInstance<?> p_232531_, Font font) {
-        internalChildren.add(ValuesList.Entry.normal(this.minecraft.options, this.width, p_232531_, font));
+        internalChildren.add(ValuesList.Entry.normal(this.minecraft.options, this.width, p_232531_, font,this.screen));
         fillValues();
     }
 
@@ -71,18 +72,20 @@ public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
 
     }
 
-    protected static class Entry extends ContainerObjectSelectionList.Entry<ValuesList.Entry> {
+    protected static class Entry extends ContainerObjectSelectionList.Entry<Entry> {
         final Map<OptionInstance<?>, List<AbstractWidget>> options;
         final List<AbstractWidget> children;
+        private final Screen screen;
         final String name;
 
-        private Entry(Map<OptionInstance<?>, List<AbstractWidget>> p_169047_,String name) {
+        private Entry(Map<OptionInstance<?>, List<AbstractWidget>> p_169047_,String name,Screen screen) {
             this.options = p_169047_;
             this.children = p_169047_.values().stream().toList().get(0);
             this.name = name;
+            this.screen=screen;
         }
 
-        public static ValuesList.Entry normal(Options p_232538_, int p_232539_, OptionInstance<?> p_232540_, Font font) {
+        public static ValuesList.Entry normal(Options p_232538_, int p_232539_, OptionInstance<?> p_232540_, Font font,Screen screen) {
             EditBox editBox = new EditBox(font,p_232539_ / 2,20,p_232539_/4,10, Component.empty());
             Predicate<String> charPredicate = Objects::nonNull;
             byte type;
@@ -111,9 +114,10 @@ public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
             editBox.setFilter(charPredicate);
             editBox.setResponder(s -> onChange(p_232540_,type,editBox,p_232538_));
             StringWidget stringWidget = new StringWidget(p_232539_ / 2,20, Component.literal(p_232540_.toString()),font);
+            stringWidget.setX(p_232539_ / 2-10-font.width(p_232540_.toString()));
             List<AbstractWidget> abstractWidgets= List.of(stringWidget,editBox);
 
-            return new ValuesList.Entry(ImmutableMap.of(p_232540_,abstractWidgets),p_232540_.toString());
+            return new ValuesList.Entry(ImmutableMap.of(p_232540_,abstractWidgets),p_232540_.toString(),screen);
         }
 
         public static void onChange(OptionInstance<?> p_232540_,byte type, EditBox editBox,Options options){
@@ -147,10 +151,13 @@ public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
 
         }
 
-        public void render(GuiGraphics p_281311_, int p_94497_, int p_94498_, int p_94499_, int p_94500_, int p_94501_, int p_94502_, int p_94503_, boolean p_94504_, float p_94505_) {
+        public void renderContent(GuiGraphics p_440603_, int p_440287_, int p_439324_, boolean p_439478_, float p_440210_) {
+            int i = 0;
+            int j = this.screen.width / 2 - 155;
+
             this.children.forEach((p_280776_) -> {
-                p_280776_.setY(p_94498_);
-                p_280776_.render(p_281311_, p_94502_, p_94503_, p_94505_);
+                p_280776_.setPosition(p_280776_.getX(), this.getContentY());
+                p_280776_.render(p_440603_, p_440287_, p_439324_, p_440210_);
             });
         }
 
