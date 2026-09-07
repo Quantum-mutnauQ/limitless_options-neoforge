@@ -16,6 +16,7 @@ public class DefaultsOptionesList {
         List<OptionInstance<?>> list = new ArrayList<>();
         Options options = Minecraft.getInstance().options;
 
+        list.add(options.gamma());
         list.add(options.renderDistance());
         list.add(options.simulationDistance());
         list.add(options.entityDistanceScaling());
@@ -35,7 +36,6 @@ public class DefaultsOptionesList {
         list.add(options.improvedTransparency());
         list.add(options.vignette());
         list.add(options.cutoutLeaves());
-        list.add(options.gamma());
         list.add(options.screenEffectScale());
         list.add(options.fovEffectScale());
         list.add(options.darknessEffectScale());

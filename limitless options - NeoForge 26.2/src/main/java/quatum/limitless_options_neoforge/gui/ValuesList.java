@@ -108,8 +108,17 @@ public class ValuesList extends ContainerObjectSelectionList<ValuesList.Entry> {
                 editBox.setValue(p_232540_.get().toString());
                 editBox.active=false;
             }
-            editBox.setFilter(charPredicate);
-            editBox.setResponder(s -> onChange(p_232540_,type,editBox,p_232538_));
+            final String[] lastValidValue = {editBox.getValue()};
+            final Predicate<String> filter = charPredicate;
+            editBox.setResponder(s -> {
+                if (filter.test(s)) {
+                    lastValidValue[0] = s;
+                    onChange(p_232540_, type, editBox, p_232538_);
+                } else {
+                    editBox.setValue(lastValidValue[0]);
+                }
+            });
+
             StringWidget stringWidget = new StringWidget(p_232539_ / 2,20, Component.literal(p_232540_.toString()),font);
             stringWidget.setX(p_232539_ / 2-10-font.width(p_232540_.toString()));
             List<AbstractWidget> abstractWidgets= List.of(stringWidget,editBox);
