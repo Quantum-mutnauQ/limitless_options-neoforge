@@ -1,22 +1,31 @@
-# Download on curseforge: [Downlod](https://www.curseforge.com/minecraft/mc-mods/limitless-options)
-In the normal configuration you can go up to the highest settings. In the text file you are able to put the settings higher. But the limits will be put down back again. To prevent the resent you can use the "Limitless options".
+# Limitless Options
 
-Limitless options allow to set options values out of the range. For example a Gamma from 2000%. If you set an value out of the range, it may can brake something, please be careful.
+This mod removes the limits of Minecraft's options. In older versions of Minecraft, you could exceed the limits of certain settings by editing the options.txt file. This was fixed in newer versions. This mod restores that functionality.
 
-You can do this via the "options.txt". This file is anther ~/.minecraft/options.txt
+## Additional Features
+### Slider Fixes
+There are three types of slider fix modes:
+- **Clamp Slider**: Clamps the slider to the edges of the slider bar.
+- **Overshoot Slider**: Allows the slider to go beyond the bounds of the slider bar while keeping its functionality.
+- **Clamp and Overshoot** Allows you to drag the slider outside of the slider bar while keeping the slider itself within the bar and increasing the value beyond its normal limit.
 
-Known issues:
+### Render Distance Fix
+This feature allows Minecraft to load more than 32 chunks of render distance. Note that this feature is still experimental and may cause issues because it changes how Minecraft loads chunks. This may cause conflicts with other mods.
 
-     
+**32 Chunks**
+<img width="100%" height="100%" alt="2026-09-20_00 46 24" src="https://github.com/user-attachments/assets/7e84b97a-b7e4-4135-8508-4e7cebe62a5e" />
 
-Notice:
+**125 Chunks**
+<img width="100%" height="100%" alt="2026-09-20_01 04 27" src="https://github.com/user-attachments/assets/7f581599-ddb5-4400-84a9-0bf62d0c0a2b" />
 
-    Cunks over 35 will not update for performance improvement(+~120 fps, - 40 mspt).
-    Add optional slider out of range fix. Can enable and disable in the config fie
-    Add render distance fix (pre pre pre alpha and may can break the chunk loaden). Can enable and disable in the config fie
+### Option Setter Screen
+The Option Setter screen allows you to set Minecraft options using text fields. Currently, it supports integers, doubles, and booleans. Support for enums will be added in the future.
 
- 
+<img width="100%" height="100%" alt="2024-04-13_10" src="https://github.com/user-attachments/assets/df661b68-44f0-4487-9d21-d9ea240108b6" />
+<img width="100%" height="100%" alt="2024-04-13_10 2" src="https://github.com/user-attachments/assets/516fa7d6-f122-4fec-9d7b-19c08c7de788" />
 
-Fabric version:
 
-https://www.curseforge.com/minecraft/mc-mods/slyde
+
+## Download
+- [Modrinth](https://modrinth.com/mod/limitless_options)
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/limitless-options)
