@@ -56,7 +56,7 @@ config="limitless_options_neoforge.mixins.json"
 modId="neoforge" #mandatory
 # The version range of the dependency
 versionRange="${neo_version_range}" #mandatory
-mandatory=true
+#mandatory=true
 # An ordering relationship for the dependency - BEFORE or AFTER required if the dependency is not mandatory
 # BEFORE - This mod is loaded BEFORE the dependency
 # AFTER - This mod is loaded AFTER the dependency
@@ -68,7 +68,7 @@ side="BOTH"
 modId="minecraft"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
 versionRange="${minecraft_version_range}"
-mandatory=true
+#mandatory=true
 ordering="NONE"
 side="BOTH"
 

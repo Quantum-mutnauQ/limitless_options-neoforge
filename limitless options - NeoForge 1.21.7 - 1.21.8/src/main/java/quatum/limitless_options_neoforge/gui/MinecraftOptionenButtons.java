@@ -4,9 +4,6 @@ package quatum.limitless_options_neoforge.gui;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
-
 
 
 public class MinecraftOptionenButtons {

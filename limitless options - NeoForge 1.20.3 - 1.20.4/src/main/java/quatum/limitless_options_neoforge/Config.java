@@ -14,9 +14,6 @@ public class Config
 {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
-     private static final ModConfigSpec.BooleanValue Troll = BUILDER
-            .comment("Enable oanly linux version")
-            .define("onalyLinux",false);
     private static final ModConfigSpec.EnumValue<SlyderFixType>  SliderFix = BUILDER
             .comment("Fix that the slider status go over the maximum")
             .defineEnum("SliderFix",SlyderFixType.FIX_CLAMP_SLIDER);
@@ -28,14 +25,12 @@ public class Config
             .define("SetOptionsButton",true);
     static final ModConfigSpec SPEC = BUILDER.build();
 
-    public static boolean troll = false;
     public static SlyderFixType SliderFixValue =SlyderFixType.FIX_CLAMP_SLIDER;
     public static boolean RenderDistanzFixValue = false;
     public static boolean SetOptionsButtonValue = true;
 
     @SubscribeEvent(priority = EventPriority.NORMAL)
     public static void configload(final ModConfigEvent event){
-        troll = Troll.get();
         SliderFixValue =SliderFix.get();
         RenderDistanzFixValue=RenderDistanzFix.get();
         SetOptionsButtonValue=SetOptionsButton.get();

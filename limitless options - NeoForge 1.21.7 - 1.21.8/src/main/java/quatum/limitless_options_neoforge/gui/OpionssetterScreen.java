@@ -12,8 +12,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GpuWarnlistManager;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 
 
 public class OpionssetterScreen extends Screen {
