@@ -22,7 +22,7 @@ public class LimitlessOptions_NeoForge {
     public LimitlessOptions_NeoForge(IEventBus modEventBus, ModContainer modContainer) {
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC, "LimitlessOptions_NeoForge-Common.toml");
+        modContainer.registerConfig(ModConfig.Type.LOCAL, Config.SPEC, "LimitlessOptions_NeoForge-Common.toml");
 
     }
 }
